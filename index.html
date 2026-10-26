@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f4d3a">
+<title>Calculadora ITH</title>
+<style>
+  :root {
+    --bg: #f2f4f1;
+    --card: #ffffff;
+    --ink: #1b2620;
+    --muted: #66746b;
+    --line: #dde3de;
+    --brand: #1f4d3a;
+    --brand-ink: #ffffff;
+    --err: #b3261e;
+    --lv0: #2f7d4f;
+    --lv1: #f2b705;
+    --lv2: #e8710a;
+    --lv3: #c0392b;
+    --focus: #2b7de9;
+    box-sizing: border-box;
+  }
+  *, *::before, *::after { box-sizing: inherit; }
+  html { background: var(--bg); }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.45; -webkit-text-size-adjust: 100%;
+  }
+
+  .bar {
+    background: var(--brand); color: var(--brand-ink);
+    padding: calc(18px + env(safe-area-inset-top, 0px)) 20px 22px;
+  }
+  .bar h1 { margin: 0; font-size: 1.25rem; font-weight: 650; letter-spacing: -0.01em; }
+  .bar p { margin: 2px 0 0; font-size: 0.85rem; opacity: .75; }
+
+  main { max-width: 480px; margin: 0 auto; padding: 16px 16px calc(28px + env(safe-area-inset-bottom, 0px)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
+
+  /* Entradas */
+  .inputs { display: grid; grid-template-columns: 1fr 1fr; margin-top: -34px; box-shadow: 0 6px 18px rgba(20,40,30,.10); }
+  .field { padding: 12px 16px 10px; border-radius: 14px; }
+  .field + .field { border-left: 1px solid var(--line); border-radius: 0 14px 14px 0; }
+  .field:first-child { border-radius: 14px 0 0 14px; }
+  .field:focus-within { background: #f7faf8; box-shadow: inset 0 0 0 2px var(--brand); }
+  .field label { display: block; font-size: 0.8rem; color: var(--muted); }
+  .row { display: flex; align-items: baseline; gap: 6px; }
+  .field input {
+    min-width: 0; width: 100%; border: 0; outline: 0; background: transparent; color: var(--ink);
+    font: inherit; font-size: 2.1rem; font-weight: 600; letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums; padding: 2px 0 0;
+  }
+  .field input::placeholder { color: #b7c1ba; font-weight: 500; }
+  .unit { font-size: 0.95rem; color: var(--muted); }
+  .field.invalid { box-shadow: inset 0 0 0 2px var(--err); }
+  .err { min-height: 1.3em; margin: 8px 4px 0; font-size: 0.85rem; color: var(--err); }
+
+  /* Resultado */
+  .result { margin-top: 6px; padding: 18px 18px 20px; }
+  .top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+  .lbl { font-size: 0.8rem; color: var(--muted); }
+  .val { font-size: 4.6rem; font-weight: 300; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+  .chip {
+    padding: 7px 14px; border-radius: 999px; font-size: 0.95rem; font-weight: 650;
+    background: var(--chip, var(--muted)); color: var(--chip-ink, #fff);
+  }
+  .chip[hidden] { display: none; }
+  .result[data-lv="0"] { --chip: var(--lv0); --chip-ink: #fff; }
+  .result[data-lv="1"] { --chip: var(--lv1); --chip-ink: #2a2000; }
+  .result[data-lv="2"] { --chip: var(--lv2); --chip-ink: #2a1300; }
+  .result[data-lv="3"] { --chip: var(--lv3); --chip-ink: #fff; }
+
+  .gauge { position: relative; margin: 20px 0 22px; }
+  .bars { display: flex; gap: 3px; height: 10px; }
+  .bars span { border-radius: 5px; }
+  .bars span:nth-child(1) { flex: 10; background: var(--lv0); }
+  .bars span:nth-child(2) { flex: 6;  background: var(--lv1); }
+  .bars span:nth-child(3) { flex: 6;  background: var(--lv2); }
+  .bars span:nth-child(4) { flex: 18; background: var(--lv3); }
+  .tick { position: absolute; top: 16px; transform: translateX(-50%); font-size: 0.7rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .pin {
+    position: absolute; top: -5px; width: 4px; height: 20px; margin-left: -2px; border-radius: 2px;
+    background: var(--ink); box-shadow: 0 0 0 2px var(--card); transition: left .25s ease;
+  }
+  .pin[hidden] { display: none; }
+  .act { margin: 0; font-size: 0.92rem; color: var(--muted); }
+
+  /* Acciones */
+  .copy {
+    display: block; width: 100%; margin-top: 14px; padding: 15px; border: 0; border-radius: 12px;
+    font: inherit; font-size: 1.02rem; font-weight: 650; cursor: pointer;
+    background: var(--brand); color: var(--brand-ink);
+  }
+  .copy:disabled { opacity: .35; cursor: not-allowed; }
+  .copy:not(:disabled):active { transform: translateY(1px); }
+  .ok { min-height: 1.3em; margin: 8px 4px 0; font-size: 0.85rem; color: var(--muted); text-align: center; }
+  button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+  /* Leyenda */
+  .legend { margin-top: 10px; overflow: hidden; }
+  .legend h2 { margin: 0; padding: 12px 16px 6px; font-size: 0.8rem; font-weight: 500; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  td { padding: 10px 16px; border-top: 1px solid var(--line); }
+  td.dot { width: 34px; padding-right: 0; }
+  td.dot i { display: block; width: 12px; height: 12px; border-radius: 50%; }
+  td.rg { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
+  tr.on td { background: #f4f7f5; font-weight: 650; }
+  tr.on td.rg { color: var(--ink); }
+
+  /* Pie */
+  .about-btn {
+    display: block; margin: 22px auto 0; padding: 6px 14px; border: 0; background: transparent;
+    color: var(--muted); font: inherit; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+  }
+  .about { margin: 8px auto 0; max-width: 320px; padding: 12px 14px; text-align: center; font-size: 0.9rem; }
+  .about[hidden] { display: none; }
+  .about p { margin: 0; }
+  .foot { margin: 16px 4px 0; font-size: 0.75rem; color: var(--muted); text-align: center; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1613; --card: #16201b; --ink: #e9efeb; --muted: #93a39a; --line: #27342d; --brand: #2f7d4f; --err: #ff8a80;
+    }
+    :root:not([data-theme="light"]) .field:focus-within,
+    :root:not([data-theme="light"]) tr.on td { background: #1c2922; }
+    :root:not([data-theme="light"]) .inputs { box-shadow: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .pin { transition: none; } .copy:not(:disabled):active { transform: none; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <h1>Calculadora ITH</h1>
+  <p>Índice de temperatura y humedad</p>
+</header>
+
+<main>
+  <section class="card inputs" aria-label="Datos de entrada">
+    <div class="field" id="fT">
+      <label for="t">Temperatura</label>
+      <div class="row">
+        <input id="t" type="text" inputmode="decimal" autocomplete="off" placeholder="25,9" aria-describedby="err">
+        <span class="unit">°C</span>
+      </div>
+    </div>
+    <div class="field" id="fH">
+      <label for="h">Humedad</label>
+      <div class="row">
+        <input id="h" type="text" inputmode="decimal" autocomplete="off" placeholder="66" aria-describedby="err">
+        <span class="unit">%</span>
+      </div>
+    </div>
+  </section>
+  <p class="err" id="err" role="alert"></p>
+
+  <section class="card result" id="res" data-lv="" aria-live="polite">
+    <div class="top">
+      <div>
+        <div class="lbl">ITH</div>
+        <div class="val" id="val">--</div>
+      </div>
+      <span class="chip" id="chip" hidden></span>
+    </div>
+    <div class="gauge" aria-hidden="true">
+      <div class="bars"><span></span><span></span><span></span><span></span></div>
+      <span class="tick" style="left:25%">70</span>
+      <span class="tick" style="left:40%">76</span>
+      <span class="tick" style="left:55%">82</span>
+      <div class="pin" id="pin" hidden></div>
+    </div>
+    <p class="act" id="act">Ingrese temperatura y humedad para calcular.</p>
+  </section>
+
+  <button type="button" class="copy" id="copy" disabled>Copiar resultado</button>
+  <p class="ok" id="ok" role="status"></p>
+
+  <section class="card legend">
+    <h2>Escala de niveles</h2>
+    <table id="tbl" aria-label="Rangos de la escala"></table>
+  </section>
+
+  <button type="button" class="about-btn" id="aboutBtn" aria-expanded="false" aria-controls="about">Acerca de</button>
+  <div class="card about" id="about" hidden>
+    <p>Creado por leondeiber malvacia</p>
+  </div>
+
+  <p class="foot">ITH = ROUNDUP(0,81*T + (H/100)*(T - 14,4) + 46,4). Redondeo hacia arriba, igual que REDONDEAR.MAS(...;0) en Excel.</p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+
+  // Escala de la tabla de rangos. "max" es el limite superior inclusivo (ITH entero).
+  var LEVELS = [
+    { max: 69, name: "Confort", range: "menor a 70", dot: "\u{1F7E2}",
+      act: "No se requiere acción. Buen momento para preparar la temporada cálida." },
+    { max: 75, name: "Alerta", range: "70 a 75", dot: "\u{1F7E1}",
+      act: "Reducir el estrés por calor: aumentar ventilación y velocidad de ventiladores, usar nebulizadores. Vigilar a las aves y verificar bebederos y ventilación." },
+    { max: 81, name: "Peligro", range: "76 a 81", dot: "\u{1F7E0}",
+      act: "Actuar de inmediato: más ventilación, enfriamiento evaporativo, ajustar nutrientes de la dieta, purgar tuberías con agua fría y maximizar el enfriamiento nocturno." },
+    { max: Infinity, name: "Emergencia", range: "mayor a 81", dot: "\u{1F534}",
+      act: "Evitar manipular las aves (traslados, vacunación). No alimentar en las horas más calientes. Reducir la intensidad de la luz." }
+  ];
+  var DOT_VARS = ["--lv0", "--lv1", "--lv2", "--lv3"];
+  var ICON_T = "\u{1F321}\uFE0F", ICON_H = "\u2601\uFE0F";
+  var G_MIN = 60, G_SPAN = 40; // el medidor cubre ITH 60 a 100
+
+  var $ = function (id) { return document.getElementById(id); };
+  var tIn = $("t"), hIn = $("h"), copyBtn = $("copy");
+  var current = null; // { tTxt, hTxt, v, lv } del ultimo resultado valido
+
+  function parse(v) {
+    var s = String(v).trim().replace(",", ".");
+    if (s === "" || !/^-?\d*\.?\d+$|^-?\d+\.$/.test(s)) return null;
+    var n = parseFloat(s);
+    return isFinite(n) ? n : null;
+  }
+
+  // Igual que Excel: ROUNDUP(x;0). El toFixed(9) elimina ruido de coma flotante
+  // (ej. 82.00000000000001 daria 83 con Math.ceil directo, Excel da 82).
+  function ith(t, h) {
+    var raw = 0.81 * t + (h / 100) * (t - 14.4) + 46.4;
+    return Math.ceil(Number(raw.toFixed(9)));
+  }
+
+  function levelIndex(v) {
+    for (var i = 0; i < LEVELS.length; i++) if (v <= LEVELS[i].max) return i;
+    return LEVELS.length - 1;
+  }
+
+  function buildMessage(c) {
+    return [
+      "Temperatura " + ICON_T,
+      c.tTxt,
+      "Humedad " + ICON_H,
+      c.hTxt,
+      "ITH: " + c.v,
+      "Índice: " + c.lv.name + " " + c.lv.dot
+    ].join("\n");
+  }
+
+  function drawTable(active) {
+    var html = "";
+    for (var i = 0; i < LEVELS.length; i++) {
+      html += '<tr class="' + (i === active ? "on" : "") + '">' +
+        '<td class="dot"><i style="background:var(' + DOT_VARS[i] + ')"></i></td>' +
+        "<td>" + LEVELS[i].name + '</td><td class="rg">' + LEVELS[i].range + "</td></tr>";
+    }
+    $("tbl").innerHTML = html;
+  }
+
+  function placePin(v) {
+    // v + 0.5 centra el pin dentro del tramo que ocupa el ITH entero
+    var pct = Math.max(1, Math.min(99, ((v + 0.5 - G_MIN) / G_SPAN) * 100));
+    $("pin").style.left = pct + "%";
+  }
+
+  function render() {
+    var tRaw = tIn.value.trim(), hRaw = hIn.value.trim();
+    var t = parse(tRaw), h = parse(hRaw);
+    var msg = "", tBad = false, hBad = false;
+
+    if (tRaw !== "" && t === null) { msg = "Temperatura no válida."; tBad = true; }
+    else if (tRaw !== "" && (t < -10 || t > 60)) { msg = "Temperatura fuera de rango (-10 a 60 °C)."; tBad = true; }
+    if (hRaw !== "" && h === null) { msg = msg || "Humedad no válida."; hBad = true; }
+    else if (hRaw !== "" && (h < 0 || h > 100)) { msg = msg || "Humedad fuera de rango (0 a 100 %)."; hBad = true; }
+
+    $("fT").classList.toggle("invalid", tBad);
+    $("fH").classList.toggle("invalid", hBad);
+    $("err").textContent = msg;
+    $("ok").textContent = "";
+
+    var res = $("res");
+    if (t === null || h === null || tBad || hBad) {
+      current = null;
+      copyBtn.disabled = true;
+      res.setAttribute("data-lv", "");
+      $("val").textContent = "--";
+      $("chip").hidden = true;
+      $("pin").hidden = true;
+      $("act").textContent = "Ingrese temperatura y humedad para calcular.";
+      drawTable(-1);
+      return;
+    }
+
+    var v = ith(t, h);
+    var i = levelIndex(v);
+    var lv = LEVELS[i];
+    current = { tTxt: tRaw, hTxt: hRaw, v: v, lv: lv };
+    copyBtn.disabled = false;
+    res.setAttribute("data-lv", String(i));
+    $("val").textContent = String(v);
+    $("chip").textContent = lv.name;
+    $("chip").hidden = false;
+    $("pin").hidden = false;
+    placePin(v);
+    $("act").textContent = lv.act;
+    drawTable(i);
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  function copy() {
+    if (!current) return;
+    var text = buildMessage(current);
+    var done = function (ok) { $("ok").textContent = ok ? "Copiado. Ya puede pegarlo en un mensaje." : "No se pudo copiar."; };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(function () { done(true); },
+        function () { done(fallbackCopy(text)); });
+    } else {
+      done(fallbackCopy(text));
+    }
+  }
+
+  tIn.addEventListener("input", render);
+  hIn.addEventListener("input", render);
+  copyBtn.addEventListener("click", copy);
+  $("aboutBtn").addEventListener("click", function () {
+    var box = $("about"), open = box.hidden;
+    box.hidden = !open;
+    this.setAttribute("aria-expanded", String(open));
+  });
+  render();
+})();
+</script>
+</body>
+</html>
