@@ -1,306 +1,886 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html class="h-full bg-slate-50 antialiased" lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1f4d3a">
-<title>Calculadora ITH</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<!-- Evitar congelamiento de caché en navegadores móviles -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>Monitor ITH - Calculadora Ambiental Avícola</title>
+
+<!-- Tailwind CSS compilado (v3.4.19, forms + container-queries) -->
+<style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:Plus Jakarta Sans,system-ui,sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:JetBrains Mono,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}input:where(:not([type])),input:where([type=date]),input:where([type=datetime-local]),input:where([type=email]),input:where([type=month]),input:where([type=number]),input:where([type=password]),input:where([type=search]),input:where([type=tel]),input:where([type=text]),input:where([type=time]),input:where([type=url]),input:where([type=week]),select,select:where([multiple]),textarea{-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0;padding:.5rem .75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000}input:where(:not([type])):focus,input:where([type=date]):focus,input:where([type=datetime-local]):focus,input:where([type=email]):focus,input:where([type=month]):focus,input:where([type=number]):focus,input:where([type=password]):focus,input:where([type=search]):focus,input:where([type=tel]):focus,input:where([type=text]):focus,input:where([type=time]):focus,input:where([type=url]):focus,input:where([type=week]):focus,select:focus,select:where([multiple]):focus,textarea:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow);border-color:#2563eb}input::-moz-placeholder,textarea::-moz-placeholder{color:#6b7280;opacity:1}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-meridiem-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-year-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");background-position:right .5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;-webkit-print-color-adjust:exact;print-color-adjust:exact}select:where([multiple]),select:where([size]:not([size="1"])){background-image:none;background-position:0 0;background-repeat:unset;background-size:initial;padding-right:.75rem;-webkit-print-color-adjust:unset;print-color-adjust:unset}input:where([type=checkbox]),input:where([type=radio]){-webkit-appearance:none;-moz-appearance:none;appearance:none;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;-moz-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}input:where([type=checkbox]){border-radius:0}input:where([type=radio]){border-radius:100%}input:where([type=checkbox]):focus,input:where([type=radio]):focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow)}input:where([type=checkbox]):checked,input:where([type=radio]):checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:50%;background-repeat:no-repeat}input:where([type=checkbox]):checked{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Cpath d='M12.207 4.793a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L6.5 9.086l4.293-4.293a1 1 0 0 1 1.414 0'/%3E%3C/svg%3E")}@media (forced-colors:active) {input:where([type=checkbox]):checked{-webkit-appearance:auto;-moz-appearance:auto;appearance:auto}}input:where([type=radio]):checked{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='3'/%3E%3C/svg%3E")}@media (forced-colors:active) {input:where([type=radio]):checked{-webkit-appearance:auto;-moz-appearance:auto;appearance:auto}}input:where([type=checkbox]):checked:focus,input:where([type=checkbox]):checked:hover,input:where([type=radio]):checked:focus,input:where([type=radio]):checked:hover{border-color:transparent;background-color:currentColor}input:where([type=checkbox]):indeterminate{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3E%3C/svg%3E");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:50%;background-repeat:no-repeat}@media (forced-colors:active) {input:where([type=checkbox]):indeterminate{-webkit-appearance:auto;-moz-appearance:auto;appearance:auto}}input:where([type=checkbox]):indeterminate:focus,input:where([type=checkbox]):indeterminate:hover{border-color:transparent;background-color:currentColor}input:where([type=file]){background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}input:where([type=file]):focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.pointer-events-none{pointer-events:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0}.-bottom-6{bottom:-1.5rem}.-right-6{right:-1.5rem}.-top-1{top:-.25rem}.bottom-0\.5{bottom:.125rem}.right-0\.5{right:.125rem}.right-5{right:1.25rem}.top-5{top:1.25rem}.z-20{z-index:20}.z-50{z-index:50}.z-\[60\]{z-index:60}.mx-auto{margin-left:auto;margin-right:auto}.my-0\.5{margin-top:.125rem;margin-bottom:.125rem}.my-4{margin-top:1rem;margin-bottom:1rem}.-ml-2\.5{margin-left:-.625rem}.-mt-2{margin-top:-.5rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-3\.5{margin-bottom:.875rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.ml-0\.5{margin-left:.125rem}.mr-1{margin-right:.25rem}.mt-0\.5{margin-top:.125rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:.75rem}.mt-4{margin-top:1rem}.mt-5{margin-top:1.25rem}.mt-6{margin-top:1.5rem}.block{display:block}.flex{display:flex}.inline-flex{display:inline-flex}.grid{display:grid}.hidden{display:none}.h-0{height:0}.h-1\.5{height:.375rem}.h-10{height:2.5rem}.h-12{height:3rem}.h-16{height:4rem}.h-2{height:.5rem}.h-3{height:.75rem}.h-32{height:8rem}.h-4{height:1rem}.h-8{height:2rem}.h-9{height:2.25rem}.h-full{height:100%}.max-h-48{max-height:12rem}.min-h-0{min-height:0}.min-h-full{min-height:100%}.w-0{width:0}.w-1\.5{width:.375rem}.w-1\/4{width:25%}.w-1\/5{width:20%}.w-10{width:2.5rem}.w-12{width:3rem}.w-16{width:4rem}.w-2{width:.5rem}.w-3{width:.75rem}.w-32{width:8rem}.w-8{width:2rem}.w-9{width:2.25rem}.w-\[72px\]{width:72px}.w-full{width:100%}.max-w-\[340px\]{max-width:340px}.max-w-\[390px\]{max-width:390px}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-rotate-90{--tw-rotate:-90deg}.-rotate-90,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.cursor-pointer{cursor:pointer}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.items-baseline{align-items:baseline}.justify-start{justify-content:flex-start}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-2\.5{gap:.625rem}.gap-3{gap:.75rem}.space-y-1>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.25rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.25rem*var(--tw-space-y-reverse))}.space-y-1\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.375rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.375rem*var(--tw-space-y-reverse))}.space-y-2\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.625rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.625rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-3\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.875rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.875rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.divide-y>:not([hidden])~:not([hidden]){--tw-divide-y-reverse:0;border-top-width:calc(1px*(1 - var(--tw-divide-y-reverse)));border-bottom-width:calc(1px*var(--tw-divide-y-reverse))}.divide-slate-100>:not([hidden])~:not([hidden]){--tw-divide-opacity:1;border-color:rgb(241 245 249/var(--tw-divide-opacity,1))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-\[2rem\]{border-radius:2rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-xl{border-radius:.75rem}.rounded-b-\[2rem\]{border-bottom-right-radius:2rem;border-bottom-left-radius:2rem}.rounded-l-full{border-top-left-radius:9999px;border-bottom-left-radius:9999px}.rounded-r-full{border-top-right-radius:9999px;border-bottom-right-radius:9999px}.border{border-width:1px}.border-0{border-width:0}.border-4{border-width:4px}.border-x{border-left-width:1px;border-right-width:1px}.border-l-\[4px\]{border-left-width:4px}.border-r-\[4px\]{border-right-width:4px}.border-t{border-top-width:1px}.border-t-\[5px\]{border-top-width:5px}.border-\[\#d2e8db\]{--tw-border-opacity:1;border-color:rgb(210 232 219/var(--tw-border-opacity,1))}.border-\[\#d8ebe0\]{--tw-border-opacity:1;border-color:rgb(216 235 224/var(--tw-border-opacity,1))}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138/var(--tw-border-opacity,1))}.border-brand-950{--tw-border-opacity:1;border-color:rgb(8 28 20/var(--tw-border-opacity,1))}.border-cyan-100\/60{border-color:rgba(207,250,254,.6)}.border-emerald-200{--tw-border-opacity:1;border-color:rgb(167 243 208/var(--tw-border-opacity,1))}.border-emerald-500{--tw-border-opacity:1;border-color:rgb(16 185 129/var(--tw-border-opacity,1))}.border-emerald-900\/10{border-color:rgba(6,78,59,.1)}.border-orange-100\/60{border-color:rgba(255,237,213,.6)}.border-orange-200{--tw-border-opacity:1;border-color:rgb(254 215 170/var(--tw-border-opacity,1))}.border-rose-200{--tw-border-opacity:1;border-color:rgb(254 205 211/var(--tw-border-opacity,1))}.border-slate-100{--tw-border-opacity:1;border-color:rgb(241 245 249/var(--tw-border-opacity,1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240/var(--tw-border-opacity,1))}.border-slate-200\/60{border-color:rgba(226,232,240,.6)}.border-slate-200\/80{border-color:rgba(226,232,240,.8)}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225/var(--tw-border-opacity,1))}.border-slate-300\/80{border-color:rgba(203,213,225,.8)}.border-slate-400{--tw-border-opacity:1;border-color:rgb(148 163 184/var(--tw-border-opacity,1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255/var(--tw-border-opacity,1))}.border-white\/10{border-color:hsla(0,0%,100%,.1)}.border-white\/15{border-color:hsla(0,0%,100%,.15)}.border-white\/20{border-color:hsla(0,0%,100%,.2)}.border-white\/60{border-color:hsla(0,0%,100%,.6)}.border-white\/80{border-color:hsla(0,0%,100%,.8)}.border-l-transparent{border-left-color:transparent}.border-r-transparent{border-right-color:transparent}.border-t-slate-900{--tw-border-opacity:1;border-top-color:rgb(15 23 42/var(--tw-border-opacity,1))}.bg-\[\#1b4332\]{--tw-bg-opacity:1;background-color:rgb(27 67 50/var(--tw-bg-opacity,1))}.bg-\[\#1b4d3e\]{--tw-bg-opacity:1;background-color:rgb(27 77 62/var(--tw-bg-opacity,1))}.bg-\[\#35484f\]\/60{background-color:rgba(53,72,79,.6)}.bg-\[\#e8f3ed\]{--tw-bg-opacity:1;background-color:rgb(232 243 237/var(--tw-bg-opacity,1))}.bg-\[\#eaf4ee\]{--tw-bg-opacity:1;background-color:rgb(234 244 238/var(--tw-bg-opacity,1))}.bg-\[\#edf6f1\]{--tw-bg-opacity:1;background-color:rgb(237 246 241/var(--tw-bg-opacity,1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199/var(--tw-bg-opacity,1))}.bg-amber-400{--tw-bg-opacity:1;background-color:rgb(251 191 36/var(--tw-bg-opacity,1))}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11/var(--tw-bg-opacity,1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0/var(--tw-bg-opacity,1))}.bg-black\/20{background-color:rgba(0,0,0,.2)}.bg-black\/60{background-color:rgba(0,0,0,.6)}.bg-brand-900{--tw-bg-opacity:1;background-color:rgb(20 61 43/var(--tw-bg-opacity,1))}.bg-cyan-50{--tw-bg-opacity:1;background-color:rgb(236 254 255/var(--tw-bg-opacity,1))}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229/var(--tw-bg-opacity,1))}.bg-emerald-400{--tw-bg-opacity:1;background-color:rgb(52 211 153/var(--tw-bg-opacity,1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245/var(--tw-bg-opacity,1))}.bg-emerald-50\/50{background-color:rgba(236,253,245,.5)}.bg-emerald-50\/70{background-color:rgba(236,253,245,.7)}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105/var(--tw-bg-opacity,1))}.bg-orange-100{--tw-bg-opacity:1;background-color:rgb(255 237 213/var(--tw-bg-opacity,1))}.bg-orange-50{--tw-bg-opacity:1;background-color:rgb(255 247 237/var(--tw-bg-opacity,1))}.bg-orange-500{--tw-bg-opacity:1;background-color:rgb(249 115 22/var(--tw-bg-opacity,1))}.bg-rose-100{--tw-bg-opacity:1;background-color:rgb(255 228 230/var(--tw-bg-opacity,1))}.bg-rose-600{--tw-bg-opacity:1;background-color:rgb(225 29 72/var(--tw-bg-opacity,1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.bg-slate-100\/80{background-color:rgba(241,245,249,.8)}.bg-slate-400{--tw-bg-opacity:1;background-color:rgb(148 163 184/var(--tw-bg-opacity,1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252/var(--tw-bg-opacity,1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42/var(--tw-bg-opacity,1))}.bg-slate-900\/40{background-color:rgba(15,23,42,.4)}.bg-transparent{background-color:transparent}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/10{background-color:hsla(0,0%,100%,.1)}.bg-white\/15{background-color:hsla(0,0%,100%,.15)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.from-brand-950{--tw-gradient-from:#081c14 var(--tw-gradient-from-position);--tw-gradient-to:rgba(8,28,20,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.via-brand-900{--tw-gradient-to:rgba(20,61,43,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),#143d2b var(--tw-gradient-via-position),var(--tw-gradient-to)}.to-brand-800{--tw-gradient-to:#1b4332 var(--tw-gradient-to-position)}.object-cover{-o-object-fit:cover;object-fit:cover}.p-0{padding:0}.p-0\.5{padding:.125rem}.p-3\.5{padding:.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-0\.5{padding-left:.125rem;padding-right:.125rem}.px-1{padding-left:.25rem;padding-right:.25rem}.px-1\.5{padding-left:.375rem;padding-right:.375rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-3\.5{padding-left:.875rem;padding-right:.875rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-2\.5{padding-top:.625rem;padding-bottom:.625rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-3\.5{padding-top:.875rem;padding-bottom:.875rem}.py-5{padding-top:1.25rem;padding-bottom:1.25rem}.pb-12{padding-bottom:3rem}.pb-2{padding-bottom:.5rem}.pb-6{padding-bottom:1.5rem}.pr-1{padding-right:.25rem}.pr-6{padding-right:1.5rem}.pt-0\.5{padding-top:.125rem}.pt-1{padding-top:.25rem}.pt-2{padding-top:.5rem}.pt-3{padding-top:.75rem}.pt-5{padding-top:1.25rem}.pt-7{padding-top:1.75rem}.text-center{text-align:center}.font-mono{font-family:JetBrains Mono,monospace}.font-sans{font-family:Plus Jakarta Sans,system-ui,sans-serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-6xl{font-size:3.75rem;line-height:1}.text-\[1\.35rem\]{font-size:1.35rem}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[12\.5px\]{font-size:12.5px}.text-\[13\.5px\]{font-size:13.5px}.text-\[13px\]{font-size:13px}.text-\[14px\]{font-size:14px}.text-\[15px\]{font-size:15px}.text-\[22px\]{font-size:22px}.text-\[7px\]{font-size:7px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-normal{font-weight:400}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-snug{line-height:1.375}.leading-tight{line-height:1.25}.tracking-tight{letter-spacing:-.025em}.tracking-wide{letter-spacing:.025em}.tracking-wider{letter-spacing:.05em}.text-\[\#113e30\]{--tw-text-opacity:1;color:rgb(17 62 48/var(--tw-text-opacity,1))}.text-\[\#143d2b\]{--tw-text-opacity:1;color:rgb(20 61 43/var(--tw-text-opacity,1))}.text-\[\#1b4332\]{--tw-text-opacity:1;color:rgb(27 67 50/var(--tw-text-opacity,1))}.text-\[\#1b4d3e\]{--tw-text-opacity:1;color:rgb(27 77 62/var(--tw-text-opacity,1))}.text-\[\#235845\]{--tw-text-opacity:1;color:rgb(35 88 69/var(--tw-text-opacity,1))}.text-\[\#2c3e37\]{--tw-text-opacity:1;color:rgb(44 62 55/var(--tw-text-opacity,1))}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9/var(--tw-text-opacity,1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14/var(--tw-text-opacity,1))}.text-brand-700{--tw-text-opacity:1;color:rgb(21 128 61/var(--tw-text-opacity,1))}.text-brand-800{--tw-text-opacity:1;color:rgb(27 67 50/var(--tw-text-opacity,1))}.text-brand-900{--tw-text-opacity:1;color:rgb(20 61 43/var(--tw-text-opacity,1))}.text-cyan-600{--tw-text-opacity:1;color:rgb(8 145 178/var(--tw-text-opacity,1))}.text-emerald-100{--tw-text-opacity:1;color:rgb(209 250 229/var(--tw-text-opacity,1))}.text-emerald-200{--tw-text-opacity:1;color:rgb(167 243 208/var(--tw-text-opacity,1))}.text-emerald-300{--tw-text-opacity:1;color:rgb(110 231 183/var(--tw-text-opacity,1))}.text-emerald-300\/90{color:rgba(110,231,183,.9)}.text-emerald-400{--tw-text-opacity:1;color:rgb(52 211 153/var(--tw-text-opacity,1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105/var(--tw-text-opacity,1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87/var(--tw-text-opacity,1))}.text-emerald-800{--tw-text-opacity:1;color:rgb(6 95 70/var(--tw-text-opacity,1))}.text-orange-600{--tw-text-opacity:1;color:rgb(234 88 12/var(--tw-text-opacity,1))}.text-orange-700{--tw-text-opacity:1;color:rgb(194 65 12/var(--tw-text-opacity,1))}.text-orange-800{--tw-text-opacity:1;color:rgb(154 52 18/var(--tw-text-opacity,1))}.text-rose-700{--tw-text-opacity:1;color:rgb(190 18 60/var(--tw-text-opacity,1))}.text-rose-800{--tw-text-opacity:1;color:rgb(159 18 57/var(--tw-text-opacity,1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225/var(--tw-text-opacity,1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184/var(--tw-text-opacity,1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139/var(--tw-text-opacity,1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105/var(--tw-text-opacity,1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.text-slate-800{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.text-slate-900{--tw-text-opacity:1;color:rgb(15 23 42/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.placeholder-slate-400::-moz-placeholder{--tw-placeholder-opacity:1;color:rgb(148 163 184/var(--tw-placeholder-opacity,1))}.placeholder-slate-400::placeholder{--tw-placeholder-opacity:1;color:rgb(148 163 184/var(--tw-placeholder-opacity,1))}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-2xl,.shadow-card{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-card{--tw-shadow:0 8px 24px -4px rgba(20,83,45,.08),0 2px 6px -1px rgba(0,0,0,.04);--tw-shadow-colored:0 8px 24px -4px var(--tw-shadow-color),0 2px 6px -1px var(--tw-shadow-color)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-lg,.shadow-md{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color)}.shadow-sm,.shadow-subtle{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-subtle{--tw-shadow:0 2px 10px -2px rgba(15,23,42,.05),0 1px 4px -1px rgba(15,23,42,.03);--tw-shadow-colored:0 2px 10px -2px var(--tw-shadow-color),0 1px 4px -1px var(--tw-shadow-color)}.shadow-emerald-600\/25{--tw-shadow-color:rgba(5,150,105,.25);--tw-shadow:var(--tw-shadow-colored)}.outline-none{outline:2px solid transparent;outline-offset:2px}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.ring-emerald-500\/30{--tw-ring-color:rgba(16,185,129,.3)}.blur-2xl{--tw-blur:blur(40px);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px)}.backdrop-blur-md,.backdrop-blur-sm{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px)}.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.duration-300{transition-duration:.3s}.selection\:bg-emerald-200 ::-moz-selection{--tw-bg-opacity:1;background-color:rgb(167 243 208/var(--tw-bg-opacity,1))}.selection\:bg-emerald-200 ::selection{--tw-bg-opacity:1;background-color:rgb(167 243 208/var(--tw-bg-opacity,1))}.selection\:bg-emerald-200::-moz-selection{--tw-bg-opacity:1;background-color:rgb(167 243 208/var(--tw-bg-opacity,1))}.selection\:bg-emerald-200::selection{--tw-bg-opacity:1;background-color:rgb(167 243 208/var(--tw-bg-opacity,1))}.focus-within\:ring-2:focus-within{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus-within\:ring-brand-700:focus-within{--tw-ring-opacity:1;--tw-ring-color:rgb(21 128 61/var(--tw-ring-opacity,1))}.hover\:bg-\[\#143326\]:hover{--tw-bg-opacity:1;background-color:rgb(20 51 38/var(--tw-bg-opacity,1))}.hover\:bg-\[\#143628\]:hover{--tw-bg-opacity:1;background-color:rgb(20 54 40/var(--tw-bg-opacity,1))}.hover\:bg-\[\#143d31\]:hover{--tw-bg-opacity:1;background-color:rgb(20 61 49/var(--tw-bg-opacity,1))}.hover\:bg-emerald-700:hover{--tw-bg-opacity:1;background-color:rgb(4 120 87/var(--tw-bg-opacity,1))}.hover\:bg-slate-100:hover{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.hover\:bg-slate-200:hover{--tw-bg-opacity:1;background-color:rgb(226 232 240/var(--tw-bg-opacity,1))}.hover\:bg-slate-50:hover{--tw-bg-opacity:1;background-color:rgb(248 250 252/var(--tw-bg-opacity,1))}.hover\:bg-white\/20:hover{background-color:hsla(0,0%,100%,.2)}.hover\:text-slate-700:hover{--tw-text-opacity:1;color:rgb(51 65 85/var(--tw-text-opacity,1))}.hover\:text-slate-800:hover{--tw-text-opacity:1;color:rgb(30 41 59/var(--tw-text-opacity,1))}.focus\:border-emerald-500:focus{--tw-border-opacity:1;border-color:rgb(16 185 129/var(--tw-border-opacity,1))}.focus\:ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(var(--tw-ring-offset-width)) var(--tw-ring-color)}.focus\:ring-0:focus,.focus\:ring-2:focus{box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color)}.focus\:ring-emerald-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(16 185 129/var(--tw-ring-opacity,1))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95}.active\:scale-95:active,.active\:scale-\[0\.98\]:active{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:scale-\[0\.98\]:active{--tw-scale-x:0.98;--tw-scale-y:0.98}.active\:bg-\[\#0f281e\]:active{--tw-bg-opacity:1;background-color:rgb(15 40 30/var(--tw-bg-opacity,1))}.active\:bg-\[\#0f2d21\]:active{--tw-bg-opacity:1;background-color:rgb(15 45 33/var(--tw-bg-opacity,1))}.active\:bg-\[\#0f2e25\]:active{--tw-bg-opacity:1;background-color:rgb(15 46 37/var(--tw-bg-opacity,1))}.active\:bg-emerald-800:active{--tw-bg-opacity:1;background-color:rgb(6 95 70/var(--tw-bg-opacity,1))}.active\:bg-slate-100:active{--tw-bg-opacity:1;background-color:rgb(241 245 249/var(--tw-bg-opacity,1))}.active\:bg-slate-200:active{--tw-bg-opacity:1;background-color:rgb(226 232 240/var(--tw-bg-opacity,1))}.active\:bg-white\/25:active{background-color:hsla(0,0%,100%,.25)}.disabled\:cursor-not-allowed:disabled{cursor:not-allowed}.disabled\:opacity-40:disabled{opacity:.4}@media (min-width:640px){.sm\:max-w-\[360px\]{max-width:360px}.sm\:grid-cols-5{grid-template-columns:repeat(5,minmax(0,1fr))}}</style>
+<!-- Phosphor Icons -->
+<link href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" rel="stylesheet" type="text/css">
+<link href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" rel="stylesheet" type="text/css">
+<link href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" rel="stylesheet" type="text/css">
+<!-- Fuentes -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --bg: #f2f4f1;
-    --card: #ffffff;
-    --ink: #1b2620;
-    --muted: #66746b;
-    --line: #dde3de;
-    --brand: #1f4d3a;
-    --brand-ink: #ffffff;
-    --err: #b3261e;
-    --lv0: #2f7d4f;
-    --lv1: #f2b705;
-    --lv2: #e8710a;
-    --lv3: #c0392b;
-    --focus: #2b7de9;
-    box-sizing: border-box;
-  }
-  *, *::before, *::after { box-sizing: inherit; }
-  html { background: var(--bg); }
   body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.45; -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
   }
-
-  .bar {
-    background: var(--brand); color: var(--brand-ink);
-    padding: calc(18px + env(safe-area-inset-top, 0px)) 20px 22px;
+  .touch-press:active {
+    transform: scale(0.97);
   }
-  .bar h1 { margin: 0; font-size: 1.25rem; font-weight: 650; letter-spacing: -0.01em; }
-  .bar p { margin: 2px 0 0; font-size: 0.85rem; opacity: .75; }
-
-  main { max-width: 480px; margin: 0 auto; padding: 16px 16px calc(28px + env(safe-area-inset-bottom, 0px)); }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; }
-
-  /* Entradas */
-  .inputs { display: grid; grid-template-columns: 1fr 1fr; margin-top: -34px; box-shadow: 0 6px 18px rgba(20,40,30,.10); }
-  .field { padding: 12px 16px 10px; border-radius: 14px; }
-  .field + .field { border-left: 1px solid var(--line); border-radius: 0 14px 14px 0; }
-  .field:first-child { border-radius: 14px 0 0 14px; }
-  .field:focus-within { background: #f7faf8; box-shadow: inset 0 0 0 2px var(--brand); }
-  .field label { display: block; font-size: 0.8rem; color: var(--muted); }
-  .row { display: flex; align-items: baseline; gap: 6px; }
-  .field input {
-    min-width: 0; width: 100%; border: 0; outline: 0; background: transparent; color: var(--ink);
-    font: inherit; font-size: 2.1rem; font-weight: 600; letter-spacing: -0.02em;
-    font-variant-numeric: tabular-nums; padding: 2px 0 0;
+  .ith-pointer {
+    transition: left 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
-  .field input::placeholder { color: #b7c1ba; font-weight: 500; }
-  .unit { font-size: 0.95rem; color: var(--muted); }
-  .field.invalid { box-shadow: inset 0 0 0 2px var(--err); }
-  .err { min-height: 1.3em; margin: 8px 4px 0; font-size: 0.85rem; color: var(--err); }
-
-  /* Resultado */
-  .result { margin-top: 6px; padding: 18px 18px 20px; }
-  .top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
-  .lbl { font-size: 0.8rem; color: var(--muted); }
-  .val { font-size: 4.6rem; font-weight: 300; line-height: 1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
-  .chip {
-    padding: 7px 14px; border-radius: 999px; font-size: 0.95rem; font-weight: 650;
-    background: var(--chip, var(--muted)); color: var(--chip-ink, #fff);
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
-  .chip[hidden] { display: none; }
-  .result[data-lv="0"] { --chip: var(--lv0); --chip-ink: #fff; }
-  .result[data-lv="1"] { --chip: var(--lv1); --chip-ink: #2a2000; }
-  .result[data-lv="2"] { --chip: var(--lv2); --chip-ink: #2a1300; }
-  .result[data-lv="3"] { --chip: var(--lv3); --chip-ink: #fff; }
-
-  .gauge { position: relative; margin: 20px 0 22px; }
-  .bars { display: flex; gap: 3px; height: 10px; }
-  .bars span { border-radius: 5px; }
-  .bars span:nth-child(1) { flex: 10; background: var(--lv0); }
-  .bars span:nth-child(2) { flex: 6;  background: var(--lv1); }
-  .bars span:nth-child(3) { flex: 6;  background: var(--lv2); }
-  .bars span:nth-child(4) { flex: 18; background: var(--lv3); }
-  .tick { position: absolute; top: 16px; transform: translateX(-50%); font-size: 0.7rem; color: var(--muted); font-variant-numeric: tabular-nums; }
-  .pin {
-    position: absolute; top: -5px; width: 4px; height: 20px; margin-left: -2px; border-radius: 2px;
-    background: var(--ink); box-shadow: 0 0 0 2px var(--card); transition: left .25s ease;
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-  .pin[hidden] { display: none; }
-  .act { margin: 0; font-size: 0.92rem; color: var(--muted); }
-
-  /* Acciones */
-  .copy {
-    display: block; width: 100%; margin-top: 14px; padding: 15px; border: 0; border-radius: 12px;
-    font: inherit; font-size: 1.02rem; font-weight: 650; cursor: pointer;
-    background: var(--brand); color: var(--brand-ink);
-  }
-  .copy:disabled { opacity: .35; cursor: not-allowed; }
-  .copy:not(:disabled):active { transform: translateY(1px); }
-  .ok { min-height: 1.3em; margin: 8px 4px 0; font-size: 0.85rem; color: var(--muted); text-align: center; }
-  button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
-
-  /* Leyenda */
-  .legend { margin-top: 10px; overflow: hidden; }
-  .legend h2 { margin: 0; padding: 12px 16px 6px; font-size: 0.8rem; font-weight: 500; color: var(--muted); }
-  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
-  td { padding: 10px 16px; border-top: 1px solid var(--line); }
-  td.dot { width: 34px; padding-right: 0; }
-  td.dot i { display: block; width: 12px; height: 12px; border-radius: 50%; }
-  td.rg { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
-  tr.on td { background: #f4f7f5; font-weight: 650; }
-  tr.on td.rg { color: var(--ink); }
-
-  /* Pie */
-  .about-btn {
-    display: block; margin: 22px auto 0; padding: 6px 14px; border: 0; background: transparent;
-    color: var(--muted); font: inherit; font-size: 0.85rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
-  }
-  .about { margin: 8px auto 0; max-width: 320px; padding: 12px 14px; text-align: center; font-size: 0.9rem; }
-  .about[hidden] { display: none; }
-  .about p { margin: 0; }
-  .foot { margin: 16px 4px 0; font-size: 0.75rem; color: var(--muted); text-align: center; }
-
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #0f1613; --card: #16201b; --ink: #e9efeb; --muted: #93a39a; --line: #27342d; --brand: #2f7d4f; --err: #ff8a80;
-    }
-    :root:not([data-theme="light"]) .field:focus-within,
-    :root:not([data-theme="light"]) tr.on td { background: #1c2922; }
-    :root:not([data-theme="light"]) .inputs { box-shadow: none; }
-  }
-  @media (prefers-reduced-motion: reduce) { .pin { transition: none; } .copy:not(:disabled):active { transform: none; } }
 </style>
 </head>
-<body>
-<header class="bar">
-  <h1>Calculadora ITH</h1>
-  <p>Índice de temperatura y humedad</p>
-</header>
 
-<main>
-  <section class="card inputs" aria-label="Datos de entrada">
-    <div class="field" id="fT">
-      <label for="t">Temperatura</label>
-      <div class="row">
-        <input id="t" type="text" inputmode="decimal" autocomplete="off" placeholder="25,9" aria-describedby="err">
-        <span class="unit">°C</span>
-      </div>
-    </div>
-    <div class="field" id="fH">
-      <label for="h">Humedad</label>
-      <div class="row">
-        <input id="h" type="text" inputmode="decimal" autocomplete="off" placeholder="66" aria-describedby="err">
-        <span class="unit">%</span>
-      </div>
-    </div>
-  </section>
-  <p class="err" id="err" role="alert"></p>
+<body class="h-full bg-slate-100/80 text-slate-800 font-sans selection:bg-emerald-200">
+<div class="min-h-full max-w-md mx-auto bg-slate-50 flex flex-col shadow-2xl relative border-x border-slate-200/60 pb-12">
 
-  <section class="card result" id="res" data-lv="" aria-live="polite">
-    <div class="top">
+  <!-- Header -->
+  <header class="bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 text-white px-5 pt-7 pb-6 rounded-b-[2rem] shadow-card relative z-20">
+    <div class="flex items-center justify-between mb-4">
       <div>
-        <div class="lbl">ITH</div>
-        <div class="val" id="val">--</div>
+        <div class="flex items-center gap-2.5">
+          <!-- Icono Oficial de la App -->
+          <div class="w-9 h-9 rounded-xl overflow-hidden shrink-0 shadow-sm border border-white/20">
+            <svg viewBox="0 0 512 512" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <rect width="512" height="512" rx="100" fill="#1b4332"/>
+              <path d="M220 155 C220 155 145 250 145 315 A75 75 0 0 0 295 315 C295 250 220 155 220 155 Z" fill="none" stroke="#5cdbb5" stroke-width="26" stroke-linejoin="round"/>
+              <path d="M320 120 A28 28 0 0 1 376 120 V280 A54 54 0 1 1 320 280 Z" fill="none" stroke="#ffffff" stroke-width="26" stroke-linecap="round"/>
+              <circle cx="348" cy="342" r="30" fill="#ffffff"/>
+              <rect x="340" y="200" width="16" height="120" rx="8" fill="#ffffff"/>
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1.5 leading-none">
+              Monitor ITH
+            </h1>
+            <p class="text-[10px] text-emerald-300/90 font-medium tracking-wider uppercase mt-1">Calculadora Ambiental</p>
+          </div>
+        </div>
       </div>
-      <span class="chip" id="chip" hidden></span>
+
+      <!-- Botón Configuración de Granja -->
+      <button aria-label="Configuración de Avícola" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 active:bg-white/25 border border-white/15 px-3 py-1.5 rounded-full backdrop-blur-sm transition-all text-xs font-semibold text-white touch-press shadow-sm" id="open-config-btn" type="button">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span id="active-avicola-name">AVICOLA</span>
+        <i class="ph-bold ph-pencil-simple text-emerald-300 text-sm"></i>
+      </button>
     </div>
-    <div class="gauge" aria-hidden="true">
-      <div class="bars"><span></span><span></span><span></span><span></span></div>
-      <span class="tick" style="left:25%">70</span>
-      <span class="tick" style="left:40%">76</span>
-      <span class="tick" style="left:55%">82</span>
-      <div class="pin" id="pin" hidden></div>
+
+    <!-- Barra de Estado Rápido -->
+    <div class="bg-black/20 backdrop-blur-sm rounded-xl px-3.5 py-2 flex items-center justify-between border border-white/10 text-xs">
+      <div class="flex items-center gap-2 text-emerald-200 font-medium">
+        <i class="ph-bold ph-broadcast text-emerald-400 text-sm"></i>
+        <span>Galpón Monitoreado:</span>
+        <span class="font-bold text-white bg-white/15 px-2 py-0.5 rounded-md" id="active-shed-label">Galpón 1</span>
+      </div>
+      <div class="text-[11px] text-emerald-300/90 font-mono flex items-center gap-1">
+        <i class="ph ph-clock"></i>
+        <span id="live-time">--:--</span>
+      </div>
     </div>
-    <p class="act" id="act">Ingrese temperatura y humedad para calcular.</p>
-  </section>
+  </header>
 
-  <button type="button" class="copy" id="copy" disabled>Copiar resultado</button>
-  <p class="ok" id="ok" role="status"></p>
+  <!-- Contenido Principal -->
+  <main class="flex-1 px-4 -mt-2 space-y-4 z-20">
 
-  <section class="card legend">
-    <h2>Escala de niveles</h2>
-    <table id="tbl" aria-label="Rangos de la escala"></table>
-  </section>
+    <!-- Selector de Galpón Dinámico -->
+    <section class="bg-white rounded-2xl p-4 shadow-subtle border border-slate-200/80">
+      <div class="flex items-center justify-between mb-3 px-1">
+        <h2 class="text-xs font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1.5" id="shed-grid-title">
+          <i class="ph-bold ph-squares-four text-brand-700"></i>
+          Selección de Galpón
+        </h2>
+        <span class="text-[11px] text-slate-500 font-semibold bg-slate-100 px-2 py-0.5 rounded-full" id="shed-count-badge">0 Galpones</span>
+      </div>
+      <div class="grid grid-cols-4 sm:grid-cols-5 gap-2 max-h-48 overflow-y-auto no-scrollbar p-0.5" id="shed-buttons-container"></div>
+    </section>
 
-  <button type="button" class="about-btn" id="aboutBtn" aria-expanded="false" aria-controls="about">Acerca de</button>
-  <div class="card about" id="about" hidden>
-    <p>Creado por leondeiber malvacia</p>
+    <!-- Entradas: Temperatura y Humedad -->
+    <section class="grid grid-cols-2 gap-3">
+      <!-- Tarjeta Temperatura -->
+      <article class="bg-white rounded-2xl p-4 shadow-subtle border border-slate-200/80 relative overflow-hidden flex flex-col justify-between focus-within:ring-2 focus-within:ring-brand-700">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Temperatura</span>
+          <div class="w-8 h-8 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center border border-orange-100/60 shadow-sm">
+            <i class="ph-bold ph-thermometer text-lg"></i>
+          </div>
+        </div>
+        <div class="mt-2 flex items-baseline gap-1">
+          <input class="w-full text-4xl font-extrabold text-slate-900 tracking-tight bg-transparent border-0 p-0 focus:ring-0 outline-none" id="input-temp" inputmode="decimal" placeholder="28.6" type="text">
+          <span class="text-lg font-bold text-slate-400">°C</span>
+        </div>
+        <div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+          <span class="flex items-center gap-1 font-medium text-emerald-700">
+            <i class="ph-bold ph-caret-down text-emerald-600"></i> Rango Óptimo
+          </span>
+          <span class="font-mono text-slate-400">20-25°C</span>
+        </div>
+      </article>
+
+      <!-- Tarjeta Humedad -->
+      <article class="bg-white rounded-2xl p-4 shadow-subtle border border-slate-200/80 relative overflow-hidden flex flex-col justify-between focus-within:ring-2 focus-within:ring-brand-700">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wide">Humedad</span>
+          <div class="w-8 h-8 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center border border-cyan-100/60 shadow-sm">
+            <i class="ph-bold ph-drop text-lg"></i>
+          </div>
+        </div>
+        <div class="mt-2 flex items-baseline gap-1">
+          <input class="w-full text-4xl font-extrabold text-slate-900 tracking-tight bg-transparent border-0 p-0 focus:ring-0 outline-none" id="input-humidity" inputmode="decimal" placeholder="46.2" type="text">
+          <span class="text-lg font-bold text-slate-400">%</span>
+        </div>
+        <div class="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+          <span class="flex items-center gap-1 font-medium text-slate-600">
+            Humedad Relativa
+          </span>
+          <span class="font-mono text-slate-400">50-70%</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- Visualizador de ITH -->
+    <section class="bg-white rounded-2xl p-5 shadow-card border border-emerald-900/10 relative overflow-hidden">
+      <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-emerald-50 rounded-full blur-2xl pointer-events-none"></div>
+      <div class="flex items-start justify-between">
+        <div>
+          <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Índice Bioclimático</span>
+          <h3 class="text-xs font-extrabold text-brand-900 tracking-tight uppercase mt-0.5">ITH Calculado</h3>
+        </div>
+        <!-- Badge de Estado -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200 transition-colors" id="ith-status-badge">
+          <span class="w-2 h-2 rounded-full bg-emerald-600" id="ith-status-dot"></span>
+          <span id="ith-status-text">Confort</span>
+        </div>
+      </div>
+
+      <!-- Valor ITH -->
+      <div class="mt-2 mb-4 flex items-baseline gap-2">
+        <span class="text-6xl font-black text-slate-900 tracking-tight" id="ith-number">--</span>
+        <span class="text-xs font-semibold text-slate-400 tracking-wide">Puntos ITH</span>
+      </div>
+
+      <!-- Barra de Escala Gráfica y Puntero -->
+      <div class="space-y-1.5 pt-2">
+        <div class="relative w-full h-4">
+          <div class="ith-pointer absolute -top-1 -ml-2.5 flex flex-col items-center" id="ith-gauge-pin" style="left: 0%;">
+            <span class="text-[10px] font-extrabold bg-slate-900 text-white px-1.5 py-0.5 rounded shadow-sm" id="ith-pin-val">--</span>
+            <div class="w-0 h-0 border-l-[4px] border-l-transparent border-r-[4px] border-r-transparent border-t-[5px] border-t-slate-900"></div>
+          </div>
+        </div>
+        <div class="h-3 w-full rounded-full bg-slate-100 overflow-hidden flex gap-1 p-0.5 border border-slate-200/80">
+          <div class="h-full rounded-l-full bg-emerald-500 flex-1" title="Confort (<70)"></div>
+          <div class="h-full bg-amber-400 w-1/5" title="Alerta (70-75)"></div>
+          <div class="h-full bg-orange-500 w-1/5" title="Peligro (76-81)"></div>
+          <div class="h-full rounded-r-full bg-rose-600 w-1/4" title="Emergencia (>81)"></div>
+        </div>
+        <div class="flex justify-between text-[10px] font-bold text-slate-400 px-0.5 font-mono pt-1">
+          <span>&lt;65</span>
+          <span class="text-emerald-700">70</span>
+          <span class="text-amber-700">76</span>
+          <span class="text-orange-700">81</span>
+          <span class="text-rose-700">&gt;85</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Adjuntar Foto del Reloj/Termohigrómetro -->
+    <section class="bg-white rounded-2xl p-3.5 shadow-subtle border border-slate-200/80 flex items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-xl bg-slate-100 border border-slate-200 overflow-hidden flex items-center justify-center shrink-0 relative">
+          <img class="w-full h-full object-cover hidden" id="photo-preview-img" alt="Foto">
+          <div class="w-full h-full bg-emerald-50 flex items-center justify-center text-emerald-700" id="photo-placeholder-icon">
+            <i class="ph-bold ph-image text-xl"></i>
+          </div>
+          <span class="absolute bottom-0.5 right-0.5 w-3 h-3 bg-emerald-500 border border-white rounded-full flex items-center justify-center text-[7px] text-white hidden" id="photo-check-badge">✓</span>
+        </div>
+        <div class="leading-tight">
+          <div class="flex items-center gap-1.5 text-xs font-bold text-slate-800" id="photo-status-title">
+            <span>📷 Foto del reloj ambiental</span>
+          </div>
+          <p class="text-[11px] text-slate-400 mt-0.5" id="photo-status-desc">Opcional para adjuntar al reporte</p>
+        </div>
+      </div>
+      <!-- Disparador: camara en vivo (getUserMedia) con respaldo al input nativo -->
+      <button type="button" id="photo-trigger-btn" class="shrink-0 bg-slate-50 hover:bg-slate-100 active:bg-slate-200 border border-slate-300/80 px-3.5 py-2 rounded-xl text-xs font-bold text-slate-700 flex items-center gap-1.5 touch-press transition-colors cursor-pointer">
+        <i class="ph-bold ph-camera text-slate-600 text-sm"></i>
+        <span>Tomar foto</span>
+      </button>
+      <input class="hidden" id="photo-hidden-input" type="file" accept="image/*" capture="environment">
+    </section>
+
+    <!-- Botones de Acción -->
+    <section class="space-y-2.5 pt-1">
+      <button class="w-full bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold py-3.5 px-5 rounded-2xl shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2.5 text-base touch-press transition-all disabled:opacity-40" id="whatsapp-share-btn" type="button" disabled>
+        <i class="ph-fill ph-whatsapp-logo text-2xl text-emerald-100"></i>
+        <span>Enviar por WhatsApp</span>
+      </button>
+      <button class="w-full bg-white hover:bg-slate-50 active:bg-slate-100 border border-slate-300 text-slate-700 font-bold py-3 px-4 rounded-xl shadow-sm flex items-center justify-center gap-2 text-sm touch-press transition-all disabled:opacity-40" id="copy-report-btn" type="button" disabled>
+        <i class="ph-bold ph-copy text-slate-500 text-base" id="copy-icon"></i>
+        <span id="copy-btn-text">Copiar mensaje</span>
+      </button>
+      <p class="text-center text-[11px] font-medium text-slate-400 transition-opacity" id="copy-status-msg">
+        Ingrese temperatura y humedad para activar los reportes.
+      </p>
+    </section>
+
+    <!-- Escala de Niveles ITH -->
+    <section class="bg-white rounded-2xl p-4 shadow-subtle border border-slate-200/80">
+      <div class="flex items-center justify-between mb-3">
+        <h4 class="text-xs font-extrabold text-slate-600 uppercase tracking-wider flex items-center gap-1.5">
+          <i class="ph-bold ph-chart-bar text-brand-800"></i>
+          Escala de Niveles ITH
+        </h4>
+        <span class="text-[10px] text-slate-400 font-semibold">Valores estándar avícola</span>
+      </div>
+      <div class="divide-y divide-slate-100 text-xs" id="legend-table">
+        <div class="py-2 flex items-center justify-between px-2 rounded-lg my-0.5" id="row-lv-0">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-emerald-500 shrink-0"></span>
+            <span class="font-bold text-slate-800">Confort</span>
+          </div>
+          <span class="font-semibold text-emerald-800 font-mono">menor a 70</span>
+        </div>
+        <div class="py-2 flex items-center justify-between px-2 rounded-lg my-0.5" id="row-lv-1">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-amber-400 shrink-0"></span>
+            <span class="font-semibold text-slate-700">Alerta</span>
+          </div>
+          <span class="font-semibold text-amber-700 font-mono">70 a 75</span>
+        </div>
+        <div class="py-2 flex items-center justify-between px-2 rounded-lg my-0.5" id="row-lv-2">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-orange-500 shrink-0"></span>
+            <span class="font-semibold text-slate-700">Peligro</span>
+          </div>
+          <span class="font-semibold text-orange-700 font-mono">76 a 81</span>
+        </div>
+        <div class="py-2 flex items-center justify-between px-2 rounded-lg my-0.5" id="row-lv-3">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-rose-600 shrink-0"></span>
+            <span class="font-semibold text-slate-700">Emergencia</span>
+          </div>
+          <span class="font-semibold text-rose-700 font-mono">mayor a 81</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enlace Acerca de -->
+    <div class="pt-1 pb-2 flex justify-center">
+      <button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold text-slate-500 hover:text-slate-800 bg-slate-100/80 hover:bg-slate-100 border border-slate-200/60 transition-colors touch-press" id="btn-open-about" type="button">
+        <i class="ph-bold ph-warning-circle text-slate-400 text-sm"></i>
+        <span>Acerca de ITH-Monitor v2.0</span>
+        <i class="ph-bold ph-caret-down -rotate-90 text-[10px] text-slate-400"></i>
+      </button>
+    </div>
+
+  </main>
+</div>
+
+<!-- MODAL 1: ACTUALIZACIÓN OFICIAL V2.0 -->
+<div class="fixed inset-0 z-50 bg-[#35484f]/60 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 hidden" id="welcome-modal">
+  <div class="bg-white rounded-[2rem] p-6 pt-5 pb-6 shadow-2xl border border-white/80 w-full max-w-[390px] mx-auto animate-in fade-in zoom-in-95">
+    <div class="flex items-center justify-start mb-4">
+      <span class="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase bg-[#e8f3ed] text-[#1b4d3e] border border-[#d2e8db]">
+        ACTUALIZACIÓN OFICIAL
+      </span>
+    </div>
+    <h2 class="text-[22px] leading-tight font-extrabold text-[#113e30] mb-3.5 tracking-tight">
+      Bienvenido a ITH-Monitor v2.0
+    </h2>
+    <div class="space-y-3.5 text-[14px] leading-relaxed text-[#2c3e37]">
+      <p class="font-normal text-slate-700">
+        Esta solución tecnológica ha sido diseñada y desarrollada por <strong class="font-bold text-[#113e30]">Leondeiber Malvacia</strong>, Especialista Técnico en Análisis Estadístico y Automatización de Procesos de Datos.
+      </p>
+      <p class="font-normal text-slate-600 text-[13.5px]">
+        Optimizada para el cálculo preciso del Índice de Temperatura y Humedad (ITH), mitigación preventiva de estrés calórico y trazabilidad operativa en entornos avícolas.
+      </p>
+    </div>
+    <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap gap-2">
+      <span class="inline-flex items-center text-[11px] font-medium text-[#235845] bg-[#edf6f1] px-2.5 py-1 rounded-md">
+        <i class="ph-fill ph-check-circle text-emerald-600 mr-1 text-xs"></i> Cálculo ITH Preciso
+      </span>
+      <span class="inline-flex items-center text-[11px] font-medium text-[#235845] bg-[#edf6f1] px-2.5 py-1 rounded-md">
+        <i class="ph-fill ph-check-circle text-emerald-600 mr-1 text-xs"></i> Estrés Calórico
+      </span>
+      <span class="inline-flex items-center text-[11px] font-medium text-[#235845] bg-[#edf6f1] px-2.5 py-1 rounded-md">
+        <i class="ph-fill ph-check-circle text-emerald-600 mr-1 text-xs"></i> Trazabilidad Avícola
+      </span>
+    </div>
+    <div class="mt-5">
+      <button class="w-full bg-[#1b4d3e] hover:bg-[#143d31] active:bg-[#0f2e25] text-white font-bold text-[15px] py-3.5 px-6 rounded-xl shadow-md active:scale-[0.98] transition text-center flex items-center justify-center" id="accept-welcome-btn" type="button">
+        Aceptar y Continuar
+      </button>
+    </div>
   </div>
+</div>
 
-  <p class="foot">ITH = ROUNDUP(0,81*T + (H/100)*(T - 14,4) + 46,4). Redondeo hacia arriba, igual que REDONDEAR.MAS(...;0) en Excel.</p>
-</main>
+<!-- MODAL 2: CONFIGURACIÓN INICIAL / GRANJA -->
+<div class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-5 transition-opacity duration-300 hidden" id="config-modal">
+  <div class="bg-white w-full max-w-sm rounded-3xl p-6 shadow-2xl border border-slate-100 relative">
+    <div class="flex items-center justify-start mb-2">
+      <div class="w-10 h-10 rounded-2xl bg-emerald-50 text-brand-900 flex items-center justify-center">
+        <i class="ph-bold ph-sliders-horizontal text-xl"></i>
+      </div>
+    </div>
+    <h3 class="text-xl font-bold text-slate-900 tracking-tight">Configuración Inicial</h3>
+    <p class="text-xs text-slate-500 mt-2 mb-5 leading-relaxed">
+      Ingresa los datos de tu granja para generar la cuadrícula y los reportes automáticos:
+    </p>
+    <form class="space-y-4" id="farm-config-form" onsubmit="event.preventDefault();">
+      <div class="space-y-1.5">
+        <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider" for="input-avicola">NOMBRE DE LA AVÍCOLA *</label>
+        <input class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 font-medium placeholder-slate-400 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-sm transition-all" id="input-avicola" placeholder="Ej: AVICOLA 6" required type="text">
+      </div>
+      <div class="space-y-1.5 pt-1">
+        <label class="block text-xs font-bold text-slate-600 uppercase tracking-wider" for="input-galpones">CANTIDAD DE GALPONES *</label>
+        <input class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 font-medium placeholder-slate-400 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-sm transition-all" id="input-galpones" max="60" min="1" placeholder="Ej: 20" required type="number">
+      </div>
+      <div class="pt-3">
+        <button class="w-full bg-[#1b4332] hover:bg-[#143326] active:bg-[#0f281e] text-white font-bold py-3.5 px-4 rounded-xl shadow-md flex items-center justify-center gap-2 text-sm touch-press transition-all disabled:opacity-40 disabled:cursor-not-allowed" id="save-config-btn" type="submit" disabled>
+          Guardar y Empezar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
+<!-- MODAL 3: FICHA TÉCNICA / ACERCA DE -->
+<div class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-md flex items-center justify-center p-4 transition-opacity duration-300 hidden" id="about-modal">
+  <article class="w-full max-w-[340px] sm:max-w-[360px] bg-white rounded-[2rem] p-6 shadow-2xl border border-white/60 relative animate-in fade-in zoom-in-95">
+    <button aria-label="Cerrar ventana" class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-400 hover:text-slate-700 transition" id="close-about-icon-btn" type="button">
+      <i class="ph-bold ph-x text-sm"></i>
+    </button>
+    <div class="mb-3">
+      <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-[#eaf4ee] text-[#1b4332] text-[11px] font-semibold tracking-wider uppercase border border-[#d8ebe0]">
+        FICHA TÉCNICA
+      </span>
+    </div>
+    <div class="mb-3.5 pr-6">
+      <h2 class="text-[1.35rem] font-bold text-[#143d2b] tracking-tight leading-tight">
+        ITH-Monitor v2.0
+      </h2>
+    </div>
+    <section class="space-y-1">
+      <div class="text-[13px] leading-snug text-slate-800">
+        <span class="text-slate-700 font-normal">Desarrollado por:</span>
+        <strong class="font-bold text-slate-900 tracking-tight ml-0.5">Leondeiber Malvacia</strong>
+      </div>
+      <p class="text-[12.5px] leading-relaxed text-slate-600 font-normal pr-1">
+        Especialista en Análisis Estadístico y Automatización de Datos.
+      </p>
+    </section>
+    <div class="my-4 pt-0.5 border-t border-slate-100"></div>
+    <section class="space-y-3">
+      <p class="text-[12.5px] leading-relaxed text-slate-600 font-normal">
+        Herramienta de precisión para el control ambiental y gestión técnica de galpones avícolas.
+      </p>
+      <div class="flex items-center gap-3 pt-0.5 text-[11px] text-slate-500 font-medium">
+        <div class="flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          <span>Versión 2.0</span>
+        </div>
+        <span class="text-slate-300">•</span>
+        <div class="flex items-center gap-1">
+          <i class="ph-bold ph-thermometer text-[10px] text-emerald-700"></i>
+          <span>Estándar ITH Avícola</span>
+        </div>
+      </div>
+    </section>
+    <div class="mt-6">
+      <button class="w-full py-3 px-4 bg-[#1b4332] hover:bg-[#143628] active:bg-[#0f2d21] text-white text-[15px] font-semibold rounded-2xl shadow-sm transition flex items-center justify-center tracking-wide" id="close-about-btn" type="button">
+        Cerrar
+      </button>
+    </div>
+  </article>
+</div>
+
+<!-- Modal de cámara en vivo -->
+<div class="fixed inset-0 z-[60] bg-black hidden flex-col" id="camera-modal">
+  <video id="camera-video" class="flex-1 min-h-0 w-full object-cover" autoplay playsinline muted></video>
+  <div class="shrink-0 flex items-center justify-between px-8 py-5 bg-black" style="padding-bottom:calc(1.25rem + env(safe-area-inset-bottom))">
+    <button type="button" id="camera-cancel-btn" class="text-white text-sm font-bold px-4 py-2">Cancelar</button>
+    <button type="button" id="camera-shot-btn" aria-label="Capturar" disabled class="w-16 h-16 rounded-full bg-white border-4 border-slate-400 active:scale-95 transition-transform disabled:opacity-40"></button>
+    <span class="w-[72px]"></span>
+  </div>
+  <canvas id="camera-canvas" class="hidden"></canvas>
+</div>
+
+<!-- LÓGICA JAVASCRIPT -->
 <script>
 (function () {
   "use strict";
 
-  // Escala de la tabla de rangos. "max" es el limite superior inclusivo (ITH entero).
   var LEVELS = [
-    { max: 69, name: "Confort", range: "menor a 70", dot: "\u{1F7E2}",
-      act: "No se requiere acción. Buen momento para preparar la temporada cálida." },
-    { max: 75, name: "Alerta", range: "70 a 75", dot: "\u{1F7E1}",
-      act: "Reducir el estrés por calor: aumentar ventilación y velocidad de ventiladores, usar nebulizadores. Vigilar a las aves y verificar bebederos y ventilación." },
-    { max: 81, name: "Peligro", range: "76 a 81", dot: "\u{1F7E0}",
-      act: "Actuar de inmediato: más ventilación, enfriamiento evaporativo, ajustar nutrientes de la dieta, purgar tuberías con agua fría y maximizar el enfriamiento nocturno." },
-    { max: Infinity, name: "Emergencia", range: "mayor a 81", dot: "\u{1F534}",
-      act: "Evitar manipular las aves (traslados, vacunación). No alimentar en las horas más calientes. Reducir la intensidad de la luz." }
+    { max: 69, name: "Confort", dot: "🟢", color: "bg-emerald-100 text-emerald-800 border-emerald-200", dotColor: "bg-emerald-600", rowId: "row-lv-0" },
+    { max: 75, name: "Alerta", dot: "🟡", color: "bg-amber-100 text-amber-800 border-amber-200", dotColor: "bg-amber-500", rowId: "row-lv-1" },
+    { max: 81, name: "Peligro", dot: "🟠", color: "bg-orange-100 text-orange-800 border-orange-200", dotColor: "bg-orange-500", rowId: "row-lv-2" },
+    { max: Infinity, name: "Emergencia", dot: "🔴", color: "bg-rose-100 text-rose-800 border-rose-200", dotColor: "bg-rose-600", rowId: "row-lv-3" }
   ];
-  var DOT_VARS = ["--lv0", "--lv1", "--lv2", "--lv3"];
-  var ICON_T = "\u{1F321}\uFE0F", ICON_H = "\u2601\uFE0F";
-  var G_MIN = 60, G_SPAN = 40; // el medidor cubre ITH 60 a 100
 
   var $ = function (id) { return document.getElementById(id); };
-  var tIn = $("t"), hIn = $("h"), copyBtn = $("copy");
-  var current = null; // { tTxt, hTxt, v, lv } del ultimo resultado valido
 
-  function parse(v) {
+  // Elementos principales
+  var activeAvicolaName = $("active-avicola-name");
+  var activeShedLabel = $("active-shed-label");
+  var liveTime = $("live-time");
+  var shedContainer = $("shed-buttons-container");
+  var shedGridTitle = $("shed-grid-title");
+  var shedCountBadge = $("shed-count-badge");
+
+  var inputTemp = $("input-temp");
+  var inputHumidity = $("input-humidity");
+  var ithNumber = $("ith-number");
+  var ithStatusBadge = $("ith-status-badge");
+  var ithStatusDot = $("ith-status-dot");
+  var ithStatusText = $("ith-status-text");
+  var ithGaugePin = $("ith-gauge-pin");
+  var ithPinVal = $("ith-pin-val");
+
+  var photoHiddenInput = $("photo-hidden-input");
+  var photoPreviewImg = $("photo-preview-img");
+  var photoPlaceholderIcon = $("photo-placeholder-icon");
+  var photoCheckBadge = $("photo-check-badge");
+  var photoStatusTitle = $("photo-status-title");
+  var photoStatusDesc = $("photo-status-desc");
+
+  var btnWp = $("whatsapp-share-btn");
+  var btnCopy = $("copy-report-btn");
+  var copyBtnText = $("copy-btn-text");
+  var copyIcon = $("copy-icon");
+  var copyStatusMsg = $("copy-status-msg");
+
+  // Modales
+  var welcomeModal = $("welcome-modal");
+  var acceptWelcomeBtn = $("accept-welcome-btn");
+
+  var configModal = $("config-modal");
+  var openConfigBtn = $("open-config-btn");
+  var farmConfigForm = $("farm-config-form");
+  var inputAvicola = $("input-avicola");
+  var inputGalpones = $("input-galpones");
+  var saveConfigBtn = $("save-config-btn");
+
+  var aboutModal = $("about-modal");
+  var btnOpenAbout = $("btn-open-about");
+  var closeAboutBtn = $("close-about-btn");
+  var closeAboutIconBtn = $("close-about-icon-btn");
+
+  var selectedShed = 1;
+  var attachedPhotoFile = null;
+  var currentResult = null;
+
+  // --- Validación de campos obligatorios ---
+  function validateConfigInputs() {
+    var farmVal = inputAvicola.value.trim();
+    var countVal = parseInt(inputGalpones.value, 10);
+    var isValid = farmVal.length > 0 && !isNaN(countVal) && countVal >= 1;
+    saveConfigBtn.disabled = !isValid;
+  }
+  inputAvicola.addEventListener("input", validateConfigInputs);
+  inputGalpones.addEventListener("input", validateConfigInputs);
+
+  // --- Hora y Saludo de Caracas Venezuela ---
+  function getVzlaDateTime() {
+    var now = new Date();
+    var timeFormatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Caracas",
+      hour: "numeric",
+      minute: "2-digit",
+      hour12: true
+    });
+    var hour24Formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Caracas",
+      hour: "numeric",
+      hour12: false
+    });
+    var dateFormatter = new Intl.DateTimeFormat("es-ES", {
+      timeZone: "America/Caracas",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric"
+    });
+
+    var h24 = parseInt(hour24Formatter.format(now), 10);
+    var saludo = "*Buenos días*";
+    if (h24 >= 12 && h24 < 19) {
+      saludo = "*Buenas tardes*";
+    } else if (h24 >= 19 || h24 < 5) {
+      saludo = "*Buenas noches*";
+    }
+
+    var horaStr = timeFormatter.format(now).toLowerCase();
+    var fechaStr = dateFormatter.format(now);
+
+    return { saludo: saludo, fecha: fechaStr, hora: horaStr };
+  }
+
+  function updateClock() {
+    var vzla = getVzlaDateTime();
+    liveTime.textContent = vzla.hora.replace(" ", "");
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+
+  // --- Almacenamiento y Generación de Galpones ---
+  function getSettings() {
+    return {
+      farm: localStorage.getItem("ith_farm_name") || "",
+      count: parseInt(localStorage.getItem("ith_galpon_count"), 10) || 0
+    };
+  }
+
+  function saveSettings(farm, count) {
+    localStorage.setItem("ith_farm_name", farm);
+    localStorage.setItem("ith_galpon_count", count);
+    buildShedGrid(farm, count);
+  }
+
+  function buildShedGrid(farm, count) {
+    activeAvicolaName.textContent = farm || "AVICOLA";
+    shedGridTitle.innerHTML = '<i class="ph-bold ph-squares-four text-brand-700"></i> ' + (farm ? farm + " . Galpones" : "Selección de Galpón");
+    shedCountBadge.textContent = count + " Galpones Activos";
+    shedContainer.innerHTML = "";
+
+    if (selectedShed > count) selectedShed = 1;
+
+    for (var i = 1; i <= count; i++) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.dataset.shed = i;
+      
+      if (i === selectedShed) {
+        btn.className = "shed-btn py-2.5 rounded-xl text-sm font-bold border transition-all bg-brand-900 text-white border-brand-950 shadow-md ring-2 ring-emerald-500/30 touch-press flex items-center justify-center gap-1";
+        btn.innerHTML = '<i class="ph-fill ph-check-circle text-emerald-400 text-xs"></i> ' + i;
+      } else {
+        btn.className = "shed-btn py-2.5 rounded-xl text-sm font-bold border transition-all text-slate-700 bg-slate-50 border-slate-200 hover:bg-slate-100 touch-press";
+        btn.textContent = i;
+      }
+
+      btn.addEventListener("click", function () {
+        selectedShed = parseInt(this.dataset.shed, 10);
+        activeShedLabel.textContent = "Galpón " + selectedShed;
+        var allBtns = shedContainer.querySelectorAll(".shed-btn");
+        allBtns.forEach(function (b) {
+          var num = b.dataset.shed;
+          if (parseInt(num, 10) === selectedShed) {
+            b.className = "shed-btn py-2.5 rounded-xl text-sm font-bold border transition-all bg-brand-900 text-white border-brand-950 shadow-md ring-2 ring-emerald-500/30 touch-press flex items-center justify-center gap-1";
+            b.innerHTML = '<i class="ph-fill ph-check-circle text-emerald-400 text-xs"></i> ' + num;
+          } else {
+            b.className = "shed-btn py-2.5 rounded-xl text-sm font-bold border transition-all text-slate-700 bg-slate-50 border-slate-200 hover:bg-slate-100 touch-press";
+            b.textContent = num;
+          }
+        });
+      });
+
+      shedContainer.appendChild(btn);
+    }
+    activeShedLabel.textContent = "Galpón " + selectedShed;
+  }
+
+  // --- Modales y Flujo ---
+  function initWorkflow() {
+    var welcomed = localStorage.getItem("ith_v2_welcomed");
+    if (!welcomed) {
+      welcomeModal.classList.remove("hidden");
+    } else {
+      checkConfig();
+    }
+  }
+
+  function checkConfig() {
+    var cfg = getSettings();
+    if (!cfg.farm || !cfg.count) {
+      configModal.classList.remove("hidden");
+      validateConfigInputs();
+      inputAvicola.focus();
+    } else {
+      buildShedGrid(cfg.farm, cfg.count);
+    }
+  }
+
+  acceptWelcomeBtn.addEventListener("click", function () {
+    localStorage.setItem("ith_v2_welcomed", "true");
+    welcomeModal.classList.add("hidden");
+    checkConfig();
+  });
+
+  openConfigBtn.addEventListener("click", function () {
+    var cfg = getSettings();
+    inputAvicola.value = cfg.farm;
+    inputGalpones.value = cfg.count || "";
+    validateConfigInputs();
+    configModal.classList.remove("hidden");
+    inputAvicola.focus();
+  });
+
+  farmConfigForm.addEventListener("submit", function () {
+    var f = inputAvicola.value.trim();
+    var c = parseInt(inputGalpones.value, 10);
+    if (!f || isNaN(c) || c < 1) return;
+    saveSettings(f, c);
+    configModal.classList.add("hidden");
+  });
+
+  btnOpenAbout.addEventListener("click", function () {
+    aboutModal.classList.remove("hidden");
+  });
+  closeAboutBtn.addEventListener("click", function () {
+    aboutModal.classList.add("hidden");
+  });
+  closeAboutIconBtn.addEventListener("click", function () {
+    aboutModal.classList.add("hidden");
+  });
+
+  // --- Manejo de la Foto ---
+  var photoObjectUrl = null;
+  function setPhoto(file) {
+    attachedPhotoFile = file;
+    if (photoObjectUrl) URL.revokeObjectURL(photoObjectUrl);
+    photoObjectUrl = URL.createObjectURL(file);
+    photoPreviewImg.src = photoObjectUrl;
+    photoPreviewImg.classList.remove("hidden");
+    photoPlaceholderIcon.classList.add("hidden");
+    photoCheckBadge.classList.remove("hidden");
+    photoStatusTitle.innerHTML = '<i class="ph-fill ph-check-circle text-emerald-600 text-sm"></i> <span>Foto adjunta lista</span>';
+    photoStatusDesc.textContent = file.name + " (" + (file.size / 1024 / 1024).toFixed(1) + " MB)";
+  }
+
+  // Respaldo: input nativo (capture) si la camara en vivo no esta disponible
+  photoHiddenInput.addEventListener("change", function () {
+    if (this.files && this.files[0]) setPhoto(this.files[0]);
+  });
+
+  // --- Camara en vivo ---
+  var cameraModal = $("camera-modal");
+  var cameraVideo = $("camera-video");
+  var cameraCanvas = $("camera-canvas");
+  var cameraStream = null;
+  var cameraShotBtn = $("camera-shot-btn");
+  var capturing = false;
+
+  function stopCamera() {
+    if (cameraStream) {
+      cameraStream.getTracks().forEach(function (t) { t.stop(); });
+      cameraStream = null;
+    }
+    cameraVideo.srcObject = null;
+    cameraModal.classList.add("hidden");
+    cameraModal.classList.remove("flex");
+  }
+
+  function fallbackToNativeInput() {
+    photoHiddenInput.value = null;
+    photoHiddenInput.click();
+  }
+
+  async function openCamera() {
+    var canLive = window.isSecureContext && navigator.mediaDevices && navigator.mediaDevices.getUserMedia;
+    if (!canLive) {
+      photoStatusDesc.textContent = "Cámara en vivo no disponible: " + (window.isSecureContext ? "sin mediaDevices" : "página no segura (usa HTTPS)");
+      fallbackToNativeInput(); return;
+    }
+    try {
+      try {
+        cameraStream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: "environment" }, width: { ideal: 1280 }, height: { ideal: 720 } },
+          audio: false
+        });
+      } catch (e1) {
+        // Reintento sin restricciones si el dispositivo no coincide con las pedidas
+        if (e1 && (e1.name === "NotFoundError" || e1.name === "OverconstrainedError")) {
+          cameraStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        } else {
+          throw e1;
+        }
+      }
+      capturing = false;
+      cameraShotBtn.disabled = true;
+      cameraVideo.srcObject = cameraStream;
+      cameraModal.classList.remove("hidden");
+      cameraModal.classList.add("flex");
+      await cameraVideo.play().catch(function () {});
+    } catch (err) {
+      var count = "?";
+      try {
+        var devs = await navigator.mediaDevices.enumerateDevices();
+        count = devs.filter(function (d) { return d.kind === "videoinput"; }).length;
+      } catch (e2) {}
+      photoStatusDesc.textContent = "Error de cámara: " + (err && err.name ? err.name : "desconocido") + " (cámaras detectadas: " + count + ")";
+      stopCamera();
+      fallbackToNativeInput();
+    }
+  }
+
+  function captureFrame() {
+    if (capturing) return;
+    var vw = cameraVideo.videoWidth, vh = cameraVideo.videoHeight;
+    if (!vw || !vh) return;
+    capturing = true;
+    cameraShotBtn.disabled = true;
+    var MAX = 1280;
+    var scale = Math.min(1, MAX / Math.max(vw, vh));
+    var w = Math.round(vw * scale), h = Math.round(vh * scale);
+    cameraCanvas.width = w;
+    cameraCanvas.height = h;
+    cameraCanvas.getContext("2d").drawImage(cameraVideo, 0, 0, w, h);
+    stopCamera(); // cierre inmediato: el cuadro ya esta en el canvas
+    photoStatusDesc.textContent = "Procesando foto...";
+    cameraCanvas.toBlob(function (blob) {
+      capturing = false;
+      if (!blob) { photoStatusDesc.textContent = "No se pudo capturar, intenta de nuevo"; return; }
+      setPhoto(new File([blob], "ith_" + Date.now() + ".jpg", { type: "image/jpeg" }));
+    }, "image/jpeg", 0.8);
+  }
+
+  cameraVideo.addEventListener("playing", function () { cameraShotBtn.disabled = false; });
+  $("photo-trigger-btn").addEventListener("click", openCamera);
+  $("camera-shot-btn").addEventListener("click", captureFrame);
+  $("camera-cancel-btn").addEventListener("click", stopCamera);
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden && cameraStream) stopCamera();
+  });
+
+  // --- Cálculo del ITH Matemático ---
+  function parseVal(v) {
     var s = String(v).trim().replace(",", ".");
     if (s === "" || !/^-?\d*\.?\d+$|^-?\d+\.$/.test(s)) return null;
     var n = parseFloat(s);
     return isFinite(n) ? n : null;
   }
 
-  // Igual que Excel: ROUNDUP(x;0). El toFixed(9) elimina ruido de coma flotante
-  // (ej. 82.00000000000001 daria 83 con Math.ceil directo, Excel da 82).
-  function ith(t, h) {
+  function ithCalc(t, h) {
     var raw = 0.81 * t + (h / 100) * (t - 14.4) + 46.4;
     return Math.ceil(Number(raw.toFixed(9)));
   }
 
-  function levelIndex(v) {
-    for (var i = 0; i < LEVELS.length; i++) if (v <= LEVELS[i].max) return i;
-    return LEVELS.length - 1;
+  function getLevel(v) {
+    for (var i = 0; i < LEVELS.length; i++) if (v <= LEVELS[i].max) return LEVELS[i];
+    return LEVELS[LEVELS.length - 1];
   }
 
-  function buildMessage(c) {
-    return [
-      "Temperatura " + ICON_T,
-      c.tTxt,
-      "Humedad " + ICON_H,
-      c.hTxt,
-      "ITH: " + c.v,
-      "Índice: " + c.lv.name + " " + c.lv.dot
-    ].join("\n");
-  }
+  function updateCalculation() {
+    var tRaw = inputTemp.value.trim();
+    var hRaw = inputHumidity.value.trim();
+    var t = parseVal(tRaw);
+    var h = parseVal(hRaw);
 
-  function drawTable(active) {
-    var html = "";
-    for (var i = 0; i < LEVELS.length; i++) {
-      html += '<tr class="' + (i === active ? "on" : "") + '">' +
-        '<td class="dot"><i style="background:var(' + DOT_VARS[i] + ')"></i></td>' +
-        "<td>" + LEVELS[i].name + '</td><td class="rg">' + LEVELS[i].range + "</td></tr>";
-    }
-    $("tbl").innerHTML = html;
-  }
+    LEVELS.forEach(function (lv) {
+      var row = $(lv.rowId);
+      if (row) row.classList.remove("bg-emerald-50/70", "font-bold");
+    });
 
-  function placePin(v) {
-    // v + 0.5 centra el pin dentro del tramo que ocupa el ITH entero
-    var pct = Math.max(1, Math.min(99, ((v + 0.5 - G_MIN) / G_SPAN) * 100));
-    $("pin").style.left = pct + "%";
-  }
-
-  function render() {
-    var tRaw = tIn.value.trim(), hRaw = hIn.value.trim();
-    var t = parse(tRaw), h = parse(hRaw);
-    var msg = "", tBad = false, hBad = false;
-
-    if (tRaw !== "" && t === null) { msg = "Temperatura no válida."; tBad = true; }
-    else if (tRaw !== "" && (t < -10 || t > 60)) { msg = "Temperatura fuera de rango (-10 a 60 °C)."; tBad = true; }
-    if (hRaw !== "" && h === null) { msg = msg || "Humedad no válida."; hBad = true; }
-    else if (hRaw !== "" && (h < 0 || h > 100)) { msg = msg || "Humedad fuera de rango (0 a 100 %)."; hBad = true; }
-
-    $("fT").classList.toggle("invalid", tBad);
-    $("fH").classList.toggle("invalid", hBad);
-    $("err").textContent = msg;
-    $("ok").textContent = "";
-
-    var res = $("res");
-    if (t === null || h === null || tBad || hBad) {
-      current = null;
-      copyBtn.disabled = true;
-      res.setAttribute("data-lv", "");
-      $("val").textContent = "--";
-      $("chip").hidden = true;
-      $("pin").hidden = true;
-      $("act").textContent = "Ingrese temperatura y humedad para calcular.";
-      drawTable(-1);
+    if (t === null || h === null || t < -10 || t > 60 || h < 0 || h > 100) {
+      currentResult = null;
+      ithNumber.textContent = "--";
+      ithPinVal.textContent = "--";
+      ithGaugePin.style.left = "0%";
+      ithStatusBadge.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-500 border border-slate-200";
+      ithStatusDot.className = "w-2 h-2 rounded-full bg-slate-400";
+      ithStatusText.textContent = "Sin datos";
+      btnWp.disabled = true;
+      btnCopy.disabled = true;
+      copyStatusMsg.textContent = "Ingrese temperatura y humedad para activar los reportes.";
       return;
     }
 
-    var v = ith(t, h);
-    var i = levelIndex(v);
-    var lv = LEVELS[i];
-    current = { tTxt: tRaw, hTxt: hRaw, v: v, lv: lv };
-    copyBtn.disabled = false;
-    res.setAttribute("data-lv", String(i));
-    $("val").textContent = String(v);
-    $("chip").textContent = lv.name;
-    $("chip").hidden = false;
-    $("pin").hidden = false;
-    placePin(v);
-    $("act").textContent = lv.act;
-    drawTable(i);
+    var v = ithCalc(t, h);
+    var lv = getLevel(v);
+    currentResult = { t: tRaw, h: hRaw, v: v, lv: lv };
+
+    ithNumber.textContent = v;
+    ithPinVal.textContent = v;
+
+    var pct = Math.max(1, Math.min(97, ((v - 60) / 30) * 100));
+    ithGaugePin.style.left = pct + "%";
+
+    ithStatusBadge.className = "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border " + lv.color;
+    ithStatusDot.className = "w-2 h-2 rounded-full " + lv.dotColor;
+    ithStatusText.textContent = lv.name;
+
+    var activeRow = $(lv.rowId);
+    if (activeRow) activeRow.classList.add("bg-emerald-50/70", "font-bold");
+
+    btnWp.disabled = false;
+    btnCopy.disabled = false;
+    copyStatusMsg.textContent = "Mensaje preparado para portapapeles o WhatsApp.";
   }
+
+  // --- Formato de Mensaje Solicitado ---
+  function buildFinalMessage() {
+    if (!currentResult) return "";
+    var cfg = getSettings();
+    var vzla = getVzlaDateTime();
+    var farmName = cfg.farm ? cfg.farm.toUpperCase() : "AVICOLA";
+
+    return [
+      vzla.saludo,
+      "🐔 *" + farmName + "*",
+      "📍 *Galpón " + selectedShed + "*",
+      "📅 *" + vzla.fecha + "* * " + vzla.hora + "*",
+      "🌡️ *Temperatura:* " + currentResult.t + " °C",
+      "💧 *Humedad:* " + currentResult.h + " %",
+      "📊 *ITH Calculado:* *" + currentResult.v + "*",
+      "⚠️ *Nivel:* " + currentResult.lv.name + " " + currentResult.lv.dot
+    ].join("\n");
+  }
+
+  // --- Envío WhatsApp ---
+  btnWp.addEventListener("click", async function () {
+    var text = buildFinalMessage();
+    if (!text) return;
+
+    if (navigator.canShare && attachedPhotoFile && navigator.canShare({ files: [attachedPhotoFile] })) {
+      try {
+        await navigator.share({
+          files: [attachedPhotoFile],
+          title: "Reporte ITH Galpón " + selectedShed,
+          text: text
+        });
+        return;
+      } catch (err) {}
+    }
+
+    var url = "https://api.whatsapp.com/send?text=" + encodeURIComponent(text);
+    window.open(url, "_blank");
+  });
+
+  // --- Copiar Portapapeles ---
+  btnCopy.addEventListener("click", function () {
+    var text = buildFinalMessage();
+    if (!text) return;
+
+    var ok = function () {
+      copyBtnText.textContent = "¡Copiado con éxito!";
+      copyIcon.className = "ph-fill ph-check-circle text-emerald-600 text-base";
+      btnCopy.classList.add("border-emerald-500", "bg-emerald-50/50");
+
+      setTimeout(function () {
+        copyBtnText.textContent = "Copiar mensaje";
+        copyIcon.className = "ph-bold ph-copy text-slate-500 text-base";
+        btnCopy.classList.remove("border-emerald-500", "bg-emerald-50/50");
+      }, 2200);
+    };
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(ok).catch(function () {
+        fallbackCopy(text);
+        ok();
+      });
+    } else {
+      fallbackCopy(text);
+      ok();
+    }
+  });
 
   function fallbackCopy(text) {
     var ta = document.createElement("textarea");
@@ -310,34 +890,15 @@
     ta.style.opacity = "0";
     document.body.appendChild(ta);
     ta.select();
-    ta.setSelectionRange(0, text.length);
-    var ok = false;
-    try { ok = document.execCommand("copy"); } catch (e) {}
+    try { document.execCommand("copy"); } catch (e) {}
     document.body.removeChild(ta);
-    return ok;
   }
 
-  function copy() {
-    if (!current) return;
-    var text = buildMessage(current);
-    var done = function (ok) { $("ok").textContent = ok ? "Copiado. Ya puede pegarlo en un mensaje." : "No se pudo copiar."; };
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(text).then(function () { done(true); },
-        function () { done(fallbackCopy(text)); });
-    } else {
-      done(fallbackCopy(text));
-    }
-  }
+  inputTemp.addEventListener("input", updateCalculation);
+  inputHumidity.addEventListener("input", updateCalculation);
 
-  tIn.addEventListener("input", render);
-  hIn.addEventListener("input", render);
-  copyBtn.addEventListener("click", copy);
-  $("aboutBtn").addEventListener("click", function () {
-    var box = $("about"), open = box.hidden;
-    box.hidden = !open;
-    this.setAttribute("aria-expanded", String(open));
-  });
-  render();
+  initWorkflow();
+  updateCalculation();
 })();
 </script>
 </body>
